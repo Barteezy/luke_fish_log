@@ -1,0 +1,38 @@
+
+<h1>
+<img src="/images/luke.png", height="80" width="80">
+ Welcome <%= @user.username %> </h1>
+ 
+<ul>
+  <% if @user.profile != nil %>
+  <li>Current City: <%=@user.profile.location%></li>
+  <li>Birth Year: <%=@user.profile.birth_date%></li>
+  <li>Favorite Fish To Target: <%=@user.profile.favorite_target%></li>
+  <li>Greatest Catch: <%=@user.profile.best_catch%></li>
+  <li>Short Bio: <%=@user.profile.short_bio%></li>
+  
+  <%end%>
+    
+</ul>
+<li>Recent Entries</li>
+<li>Earlier Entries</li>
+
+  <a href="/add_fish">
+    <button type="button" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-star"></span> Add Fish
+    </button>
+  </a>
+<br>
+<br>
+  <a href="/edit_profile/<%=@user.username%>">
+    <button type="button" class="btn btn-default btn-md">
+      <span class="glyphicon glyphicon-star"></span> Edit Profile
+    </button></a>
+<br>
+<br>
+<br>
+<br>
+  <a href="/delete_profile/<%=@user.username%>">
+    <button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-star"></span> Delete Profile
+    </button></a>

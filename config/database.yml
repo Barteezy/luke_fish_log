@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  host: localhost
+  database: "my_project_ruby"
+  username: postgres
+  password: postgres
+  encoding: unicode

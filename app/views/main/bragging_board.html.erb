@@ -1,0 +1,23 @@
+<h1>Fish Log</h1>
+
+<table class="table">
+<tr>
+      <% @user.fish_pins.each do |f| %>
+<h2>   Species: <%= f.species%> </h2>
+  <ul>
+   <li>   Length: <%= f.length%> </li>
+   <li>   Weight: <%= f.weight%> </li>
+   <li>   Bait: <%= f.bait%> </li>
+   <li>   Depth: <%= f.depth%> </li>
+   <li>   Temperature: <%= f.temperature%> </li>
+   <li>   Other Notes: <%= f.other_notes%> </li>
+  </ul>
+</tr>
+      
+      
+      
+  </tr>
+  <%end%>
+  
+  
+</table>

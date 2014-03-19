@@ -1,0 +1,20 @@
+<h1> Colorado Fish ID</h1>
+<h2> Know What You Catch!</h2>
+
+<table class="table">
+<tr>
+  <th>Species</th>
+  <th>Image</th>
+  <th>Description (from <a href"http://cpw.state.co.us/learn/Pages/FishID.aspx">CO Parks and Wildlife)</a></th>
+</tr>
+
+<tr>
+  <% FishType.order(:id).each do |fish| %>
+    <td><b><%=fish.name%></b></td>
+    <td><a href="/fish_profile/<%=fish.name%>"><img src="/images/<%=fish.image%>.jpg", width="190px"></td>
+    <td><%=fish.description%></td>
+</tr>
+<%end%>
+
+
+

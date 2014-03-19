@@ -1,0 +1,31 @@
+<head>
+<%= error_messages_for @user %>
+
+</head>
+<h1>Sign Up</h1>
+
+
+<p>
+  <%= label_tag "username" %>
+  <br>
+  <%= text_field_tag "username", @old_email %>
+</p>
+
+<p>
+  <%= label_tag "email" %>
+  <br>
+  <%= text_field_tag "email", @old_email %>
+</p>
+
+<%= label_tag :password %><br>
+<%= password_field_tag :password %><br>
+
+<%= label_tag :password_confirmation %><br>
+<%= password_field_tag :password_confirmation %><br>
+
+<p>
+  <%= submit_tag "Login" %>
+</p>
+
+
+</body>

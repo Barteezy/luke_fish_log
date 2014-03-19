@@ -1,0 +1,30 @@
+<h1> Alright <%=@user.username%>, let's edit your profile. </h1>
+
+<table class="table">
+<tr>
+  <td><%= label_tag "Where are you located?" %></td>
+  <td><%= text_field_tag "location","", placeholder: "Location" %></td>
+</tr>
+<tr>
+  <td><%= label_tag "Birth Date" %></td>
+  <td><%= text_field_tag "birth_date","", placeholder: "You can lie" %></td>
+</tr>
+<tr>
+  <td><%= label_tag "Favorite Target Species"%></td>
+  <td><%= text_field_tag "favorite_target","", placeholder: "Favorite Target" %></td>
+</tr>
+<tr>
+  <td><%= label_tag "Best Catch"%></td>
+  <td><%= text_field_tag "best_catch", "", placeholder: "Brag a little"  %></td>
+</tr>
+<tr>
+  <td><%= label_tag "About You" %></td>
+  <td><%= text_area_tag "short_bio","", placeholder: "Tell us a little about yourself" %></td>
+</tr>
+<tr>
+
+<h3> Upload a profile pic </h3>
+</tr>
+
+</table>
+<%= submit_tag "Update" %>

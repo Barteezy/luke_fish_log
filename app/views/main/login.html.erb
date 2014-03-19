@@ -1,0 +1,32 @@
+
+<% if @error != nil %>
+  <b>Error: <%= @error %></b>
+<% end %>
+<% if @user != nil %>
+  <b><%=@user.username%> you are already signed in. Go to your profile <a href="/profile_page/<%=@user.username%>">Here</a></b>
+<%end%>
+
+<h1>Please login</h1>
+
+<p>
+  <%= label_tag "email" %>
+  <br>
+  <%= text_field_tag "email", @old_email %>
+</p>
+
+<p>
+  <%= label_tag "password" %>
+  <br>
+  <%= password_field_tag "password", "" %>
+</p>
+
+<p>
+  <%= submit_tag "Login" %>
+</p>
+
+
+</body>
+
+
+<p> test user: username: "FirstUser", email: "first@user.com" password: "password"
+	
