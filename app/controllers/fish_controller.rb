@@ -69,7 +69,6 @@ class FishController < ApplicationController
     end
 
     def fish_params
-      @user = User.find_by(id: session[:user_id])
-      params.require(:fish).permit(:location, :species, :lenth, :weight, :bait, :depth, :temperature, :other_notes)
+      params.require(:fish).permit(:image, :location, :species, :lenth, :weight, :bait, :depth, :temperature, :other_notes)
     end
 end

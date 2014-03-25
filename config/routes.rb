@@ -43,6 +43,8 @@ get "/logged_out" => "main#logged_out_get"
 get "/fish_profile/:name" => "main#fish_profile_get"
 
 post "/edit_profile/:username" => "main#edit_profile_post"
+
+patch "/edit_profile/:username" => "main#edit_profile_post"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

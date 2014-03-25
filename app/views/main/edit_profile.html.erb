@@ -1,6 +1,13 @@
-<%= form_tag "/edit_profile/#{@user.username}" do %>
+<%= form_for @profile, :url => "/edit_profile/#{@user.username}", :html => { :multipart => true } do |form| %>
+ 
+
+<%= form_tag "/edit_profile/#{@user.username}",html: { multipart: true } do %>
 <h1> Alright <%=@user.username%>, let's edit your profile. </h1>
 
+<div class="form-group">
+  <%= label_tag "Upload a profile pic" %>
+  <%= form.file_field :avatar %>
+</div>
 
 <div class="form-group">
   <%= label_tag "Where are you located?" %>
@@ -28,4 +35,5 @@
 <div class="form-group">
 <%= submit_tag "Update", class: "btn btn-primary" %>
 </div>
+<%end%>
 <%end%>

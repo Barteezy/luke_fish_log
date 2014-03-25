@@ -1,7 +1,7 @@
 
 <%= form_tag "/profile_page/#{@user.username}" do %>
 <h1>
-<img src="/images/luke.png", height="80" width="80">
+<%= image_tag @user.profile.avatar.url(:medium) %>
  Welcome <%= @user.username %> </h1>
  
 <ul>

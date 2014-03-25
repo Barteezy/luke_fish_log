@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>User</th>
+      <th>Image</th>
       <th>Location</th>
       <th>Species</th>
       <th>Lenth</th>
@@ -22,6 +23,7 @@
     <% @fish.each do |fish| %>
       <tr>
         <td><%= fish.user.username if fish.user %></td>
+        <td><%= image_tag fish.image.url(:medium) %></td>
         <td><%= fish.location %></td>
         <td><%= fish.species %></td>
         <td><%= fish.lenth %></td>

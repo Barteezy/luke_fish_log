@@ -24,7 +24,7 @@ end
 
 def create_profile_post
 	 @user = User.find_by(id: session[:user_id])
-  @profile = Profile.new
+  @profile = Profile.new(profile_params)
   @profile.user_id = @user.id
   @profile.location = params[:location]
   @profile.birth_year = params[:birth_year]
@@ -39,17 +39,14 @@ end
 def edit_profile_post
    @user = User.find_by(id: session[:user_id])
    @profile = Profile.find_by(user_id: @user.id)
-  @profile.location = params[:location]
-  @profile.birth_year = params[:birth_year]
-  @profile.favorite_target = params[:favorite_target]
-  @profile.best_catch = params[:best_catch]
-  @profile.short_bio = params[:short_bio]
-
-  if @profile.save == true
-    redirect_to "/profile/#{@user.username}" and return
-  else 
+if @profile.update(profile_params)
+            redirect_to "/profile/#{@user.username}"
+      else 
     render :edit_profile and return
+        
 end
+
+
 end
 
 def edit_profile_get
@@ -168,7 +165,16 @@ def fish_profile_get
   @fish_type = FishType.find_by(name: name)
   render :fish_profile and return
 end
+private
+
+# Use strong_parameters for attribute whitelisting
+# Be sure to update your create() and update() controller methods.
+
+def profile_params
+  params.require(:profile).permit(:avatar, :location, :birth_year, :best_catch, :short_bio)
+end
 
 
 end
+
 
