@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :fish_pins
-  has_one :profile
+  has_many :fish
+  has_one  :profile
 
 	validates :username, presence: true
 	validates :username, uniqueness: true

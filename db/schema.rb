@@ -11,22 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316180501) do
+ActiveRecord::Schema.define(version: 20140325030149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "fish_pins", force: true do |t|
-    t.string "user_id"
-    t.string "location"
-    t.string "species"
-    t.string "length"
-    t.string "weight"
-    t.string "bait"
-    t.string "depth"
-    t.string "temperature"
-    t.text   "other_notes"
+  create_table "fish", force: true do |t|
+    t.string   "location"
+    t.string   "species"
+    t.string   "lenth"
+    t.string   "weight"
+    t.string   "bait"
+    t.string   "depth"
+    t.string   "temperature"
+    t.string   "other_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "fish", ["user_id"], name: "index_fish_on_user_id", using: :btree
 
   create_table "fish_types", force: true do |t|
     t.string "name"
@@ -35,19 +39,20 @@ ActiveRecord::Schema.define(version: 20140316180501) do
   end
 
   create_table "profiles", force: true do |t|
-    t.string "user_id"
-    t.string "location"
-    t.string "birth_date"
-    t.string "favorite_target"
-    t.string "best_catch"
-    t.text   "short_bio"
+    t.integer  "user_id"
+    t.string   "location"
+    t.string   "favorite_target"
+    t.string   "birth_year"
+    t.string   "best_catch"
+    t.string   "short_bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
     t.string "username"
     t.string "password_digest"
     t.string "email"
-    t.string "personal_bio"
   end
 
 end

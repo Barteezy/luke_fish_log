@@ -1,4 +1,4 @@
-User.create! username: "FirstUser", email: "first@user.com", password: "password", password_confirmation: "password", personal_bio: "Born in Colorado"
+User.create! username: "FirstUser", email: "first@user.com", password: "password", password_confirmation: "password"
 
 
 FishType.create! name: "Rainbow Trout", image: "RainbowTrout", description: "These fish were introduced in the 1880s and have become both the angler’s favorite and the mainstay of Colorado’s hatchery system (millions of catchable and subcatchable sized fish are stocked annually). Rainbows can be found in most mountain lakes and streams, as well as many plains reservoirs. Physical characteristics that can help distinguish rainbow trout include dark spots on a light body, continuous spotting throughout the body, and often a “rainbow” horizontal reddish stripe. Rainbow trout may be caught with a variety of flies, baits, and lures."

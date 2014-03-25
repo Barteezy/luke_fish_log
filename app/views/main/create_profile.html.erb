@@ -1,0 +1,33 @@
+<%= form_tag "/create_profile/#{@user.username}" do %>
+
+
+<h1> Alright <%=@user.username%>, let's create your profile. </h1>
+
+
+<div class="form-group">
+  <%= label_tag "Where are you located?" %>
+  <%= text_field_tag "location","", placeholder: "Location", class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= label_tag "Birth Year" %>
+  <%= text_field_tag "birth_year","", placeholder: "You can lie", class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= label_tag "Favorite Target Species"%>
+  <%= text_field_tag "favorite_target","", placeholder: "Favorite Target", class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= label_tag "Best Catch"%>
+  <%= text_field_tag "best_catch", "", placeholder: "Brag a little", class: "form-control"  %>
+</div>
+<div class="form-group">
+  <%= label_tag "About You" %>
+  <%= text_area_tag "short_bio","", placeholder: "Tell us a little about yourself", class: "form-control" %>
+</div>
+
+
+
+<div class="form-group">
+<%= submit_tag "Update", class: "btn btn-primary" %>
+</div>
+<%end%>

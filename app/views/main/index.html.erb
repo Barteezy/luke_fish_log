@@ -1,14 +1,15 @@
-<body background="/images/background.jpg" size="100%">
+<body background="/images/background.jpg", size="100%">
+	
 
 <div class="jumbotron center" >
 <% if @user != nil %>
-  <b><%=@user.username%> you are already signed in. Go to your profile <a href="/profile_page/<%=@user.username%>">Here</a></b>
+  <b><%=@user.username%> you are already signed in. Go to your profile <a href="/profile/<%=@user.username%>">Here</a></b>
 <%end%>
 
 <h1> Welcome To The Colorado Fish Log </h1>
 
  
-<h2> <%= link_to "Login","login", class: "btn btn-primary btn-lg"%>or
- <%= link_to "Sign Up","sign_up", class: "btn btn-danger btn-lg"%></h2>
+<h2 align="center"> <%= link_to "Login","login", class: "btn btn-primary btn-lg"%>or
+ <%= link_to "Sign Up","sign_up", class: "btn btn-success btn-lg"%></h2>
 </div>
-</body>
+

@@ -1,40 +1,57 @@
 
+<%= form_tag "/add_fish" do %>
 <h2>What did you catch?</h2>
 
 <h2>Enter the Deets</h2>
 <%=label_tag "Location" %>
 
-<br>
-  <%= text_field_tag "location","", placeholder: "Location", rows: 20 %>
-<br>
+
+<div class="form-group">
+  <%= text_field_tag "location","", placeholder: "Location", rows: 20, class: "form-control" %>
+</div>
+
 <%=label_tag "Species" %>
-<br>
-  <%= text_field_tag "species", "", placeholder: "Species"%>
-<br>
+
+<div class="form-group">
+  <%= text_field_tag "species", "", placeholder: "Species", class: "form-control"%>
+</div>
+
 <%=label_tag "Length" %>
-<br>
-  <%= text_field_tag "length", "", placeholder: "Length" %>
-<br>
+
+<div class="form-group">
+  <%= text_field_tag "length", "", placeholder: "Length", class: "form-control" %>
+</div>
+
 <%=label_tag "Weight" %>
-<br>
-  <%= text_field_tag "weight", "", placeholder: "Weight" %>
-<br>
+
+<div class="form-group">
+  <%= text_field_tag "weight", "", placeholder: "Weight", class: "form-control" %>
+</div>
+
 <%=label_tag "Bait" %>
-<br>
-  <%= text_field_tag "bait", "", placeholder: "Bait" %>
-<br>
+
+<div class="form-group">
+  <%= text_field_tag "bait", "", placeholder: "Bait", class: "form-control" %>
+</div>
+
 <%=label_tag "Depth" %>
-<br>
-  <%= text_field_tag "depth", "", placeholder: "Depth"%>
-<br>
+
+<div class="form-group">
+  <%= text_field_tag "depth", "", placeholder: "Depth", class: "form-control"%>
+</div>
+
 <%=label_tag "Temperature" %>
-<br>
-  <%= text_field_tag "temperature", "", placeholder: "Temperature" %>
-<br>
+
+<div class="form-group">
+  <%= text_field_tag "temperature", "", placeholder: "Temperature", class: "form-control" %>
+</div>
+
 <%=label_tag "Other Notes" %>
-<br>
-  <%= text_field_tag "other_notes", "", placeholder: "Other Notes" %>
-<br>
+
+<div class="form-group">
+  <%= text_field_tag "other_notes", "", placeholder: "Other Notes", class: "form-control" %>
+</div>
+
 
 
 
@@ -55,5 +72,5 @@
 <h2>Upload Fish</h2>
 <%= submit_tag "Upload Fish" %>
 
-
+<%end%>
 

@@ -1,0 +1,46 @@
+<h1>Listing fish</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Location</th>
+      <th>Species</th>
+      <th>Lenth</th>
+      <th>Weight</th>
+      <th>Bait</th>
+      <th>Depth</th>
+      <th>Temperature</th>
+      <th>Other notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fish.each do |fish| %>
+      <tr>
+        <td><%= fish.user.username if fish.user %></td>
+        <td><%= fish.location %></td>
+        <td><%= fish.species %></td>
+        <td><%= fish.lenth %></td>
+        <td><%= fish.weight %></td>
+        <td><%= fish.bait %></td>
+        <td><%= fish.depth %></td>
+        <td><%= fish.temperature %></td>
+        <td><%= fish.other_notes %></td>
+        <td><%= link_to 'Show', fish %></td>
+          <% if fish.user == @user %>
+          <td><%= link_to 'Edit', edit_fish_path(fish) %></td>
+          <td><%= link_to 'Destroy', fish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if @user != nil %>
+<%= link_to 'New Fish', new_fish_path %>
+<%end%>

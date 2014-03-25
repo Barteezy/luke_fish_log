@@ -1,0 +1,49 @@
+<%= form_for(@fish) do |f| %>
+  <% if @fish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fish.errors.count, "error") %> prohibited this fish from being saved:</h2>
+
+      <ul>
+      <% @fish.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :location %><br>
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :species %><br>
+    <%= f.text_field :species, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :lenth %><br>
+    <%= f.text_field :lenth, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :weight %><br>
+    <%= f.text_field :weight, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :bait %><br>
+    <%= f.text_field :bait, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :depth %><br>
+    <%= f.text_field :depth, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :temperature %><br>
+    <%= f.text_field :temperature, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :other_notes %><br>
+    <%= f.text_field :other_notes, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

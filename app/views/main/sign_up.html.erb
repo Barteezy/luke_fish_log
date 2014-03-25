@@ -1,31 +1,38 @@
+<%= form_tag "/sign_up" do %>
+
 <head>
 <%= error_messages_for @user %>
 
 </head>
 <h1>Sign Up</h1>
+<body>
 
-
-<p>
+<div class="form-group">
   <%= label_tag "username" %>
-  <br>
-  <%= text_field_tag "username", @old_email %>
-</p>
+  <%= text_field_tag "username", "", class: "form-control" %>
+</div>
 
-<p>
+<div class="form-group">
   <%= label_tag "email" %>
   <br>
-  <%= text_field_tag "email", @old_email %>
-</p>
+  <%= text_field_tag "email", "", class: "form-control" %>
+</div>
 
+<div class="form-group">
 <%= label_tag :password %><br>
-<%= password_field_tag :password %><br>
+<%= password_field_tag :password,"", class: "form-control" %><br>
+</div>
 
+<div class="form-group">
 <%= label_tag :password_confirmation %><br>
-<%= password_field_tag :password_confirmation %><br>
+<%= password_field_tag :password_confirmation,"", class: "form-control" %><br>
+</div>
 
-<p>
-  <%= submit_tag "Login" %>
-</p>
+
+<div class="form-group">
+  <%= submit_tag "Sign Up", class: "btn btn-primary" %>
+</div>
 
 
 </body>
+<%end%>

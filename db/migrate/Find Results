@@ -1,0 +1,10 @@
+Searching 214 files for "my_project_ruby"
+
+/Users/lukebartel/Desktop/luke_fish_log/config/database.yml:
+    2    adapter: postgresql
+    3    host: localhost
+    4:   database: "luke_fish_log"
+    5    username: postgres
+    6    password: postgres
+
+1 match in 1 file

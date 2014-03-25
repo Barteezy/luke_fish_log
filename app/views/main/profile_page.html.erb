@@ -1,4 +1,5 @@
 
+<%= form_tag "/profile_page/#{@user.username}" do %>
 <h1>
 <img src="/images/luke.png", height="80" width="80">
  Welcome <%= @user.username %> </h1>
@@ -6,7 +7,7 @@
 <ul>
   <% if @user.profile != nil %>
   <li>Current City: <%=@user.profile.location%></li>
-  <li>Birth Year: <%=@user.profile.birth_date%></li>
+  <li>Birth Year: <%=@user.profile.birth_year%></li>
   <li>Favorite Fish To Target: <%=@user.profile.favorite_target%></li>
   <li>Greatest Catch: <%=@user.profile.best_catch%></li>
   <li>Short Bio: <%=@user.profile.short_bio%></li>
@@ -36,3 +37,4 @@
     <button type="button" class="btn btn-default btn-sm">
       <span class="glyphicon glyphicon-star"></span> Delete Profile
     </button></a>
+<%end%>

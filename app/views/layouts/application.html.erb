@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	
+ 
   <title>App</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<%= yield %>
+	<%= render 'layouts/header' %>
+	<div class="container">
+	<%= yield %>
+	</div>
+
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+<% if flash[:error] != nil %>
+      <div class="alert alert-danger">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+    <% if flash[:error2] != nil %>
+      <div class="alert alert-danger">
+        <%= flash[:error2] %>
+      </div>
+    <%end%>

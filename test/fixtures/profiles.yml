@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  location: MyString
+  birth_year: 
+  best_catch: MyString
+  short_bio: MyString
+
+two:
+  location: MyString
+  birth_year: 
+  best_catch: MyString
+  short_bio: MyString
