@@ -8,6 +8,11 @@ class FishController < ApplicationController
     @fish = Fish.all
   end
 
+  def recent
+    @user = User.find_by(id: session[:user_id])
+    @fish = Fish.all
+  end
+
   
   def show
     @user = User.find_by(id: session[:user_id])

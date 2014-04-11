@@ -1,6 +1,9 @@
 <% if @user != nil %>
 <h1><%=@user.username%>'s Fish</h1>
+
+
   <div id="fish" class="transitions-enabled">
+    
     <% @user.fish.each do |fish| %>
       <div class="box panel panel-default">
       <%= link_to image_tag(fish.image.url(:medium)), fish %>

@@ -4,6 +4,8 @@ App::Application.routes.draw do
 
   resources :fish
 
+  get "/recent" => "fish#recent"
+
   root "main#index"
 
   get "/login" => "main#login_get"
