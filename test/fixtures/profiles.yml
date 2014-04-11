@@ -2,12 +2,14 @@
 
 one:
   location: MyString
-  birth_year: 
+  birth_year: MyString
+  favorite_target: MyString
   best_catch: MyString
   short_bio: MyString
 
 two:
   location: MyString
-  birth_year: 
+  birth_year: MyString
+  favorite_target: MyString
   best_catch: MyString
   short_bio: MyString

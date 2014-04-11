@@ -22,9 +22,9 @@
         <li><a href="/fish_id">Fish ID</a></li>
         
         <% if @user != nil %>
-        <li><a href="/add_fish">New Fish</a></li>
+        <li><%= link_to 'Add Fish', new_fish_path %></a></li>
         
-        <li><a href="/profile/<%=@user.username%>"><%= @user.username %></a></li>
+        <li><a href="/profiles/<%=@user.id%>"><%= @user.username %></a></li>
         
         <li><a href="/logout">Logout <%= @user.username %></a></li>  
       </ul>

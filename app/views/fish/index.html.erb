@@ -1,48 +1,31 @@
-<h1>Listing fish</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Image</th>
-      <th>Location</th>
-      <th>Species</th>
-      <th>Lenth</th>
-      <th>Weight</th>
-      <th>Bait</th>
-      <th>Depth</th>
-      <th>Temperature</th>
-      <th>Other notes</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @fish.each do |fish| %>
-      <tr>
-        <td><%= fish.user.username if fish.user %></td>
-        <td><%= image_tag fish.image.url(:medium) %></td>
-        <td><%= fish.location %></td>
-        <td><%= fish.species %></td>
-        <td><%= fish.lenth %></td>
-        <td><%= fish.weight %></td>
-        <td><%= fish.bait %></td>
-        <td><%= fish.depth %></td>
-        <td><%= fish.temperature %></td>
-        <td><%= fish.other_notes %></td>
-        <td><%= link_to 'Show', fish %></td>
-          <% if fish.user == @user %>
-          <td><%= link_to 'Edit', edit_fish_path(fish) %></td>
-          <td><%= link_to 'Destroy', fish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <%end%>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 <% if @user != nil %>
-<%= link_to 'New Fish', new_fish_path %>
+<h1><%=@user.username%>'s Fish</h1>
+  <div id="fish" class="transitions-enabled">
+    <% @user.fish.each do |fish| %>
+      <div class="box panel panel-default">
+      <%= link_to image_tag(fish.image.url(:medium)), fish %>
+      <div class="panel-body">
+        
+
+        <%= fish.species %>
+      <div class="actions">
+        <%= link_to fish do %>
+        <span class="glyphicon glyphicon-info-sign">Details</span>
+        <%end%>|
+        <% if fish.user == @user %>
+        <%= link_to edit_fish_path(fish) do %>
+        <span class="glyphicon glyphicon-edit">Edit</span>
+        <%end%>|
+        <%= link_to fish, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-remove">Delete</span>
+        <%end%>
+      <%end%>
+        </div>
+        </div>
+        </div>
+    <% end %>
+  </div>
+
+<%else%>
+<h1> Please <a href="/">Log In</a> </h1>
 <%end%>

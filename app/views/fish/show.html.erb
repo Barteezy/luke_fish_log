@@ -1,46 +1,60 @@
-<%= image_tag @fish.image.url(:medium) %>
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel heading center">
+    <%= image_tag @fish.image.url(:medium) %>
+      </div>
+      <div class="panel body center">
+    <p>
+      <b>Location:</b>
+      <%= @fish.location %>
+    </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @fish.location %>
-</p>
+    <p>
+      <strong>Species:</strong>
+      <%= @fish.species %>
+    </p>
 
-<p>
-  <strong>Species:</strong>
-  <%= @fish.species %>
-</p>
+    <p>
+      <strong>Lenth:</strong>
+      <%= @fish.lenth %>
+    </p>
 
-<p>
-  <strong>Lenth:</strong>
-  <%= @fish.lenth %>
-</p>
+    <p>
+      <strong>Weight:</strong>
+      <%= @fish.weight %>
+    </p>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @fish.weight %>
-</p>
+    <p>
+      <strong>Bait:</strong>
+      <%= @fish.bait %>
+    </p>
 
-<p>
-  <strong>Bait:</strong>
-  <%= @fish.bait %>
-</p>
+    <p>
+      <strong>Depth:</strong>
+      <%= @fish.depth %>
+    </p>
 
-<p>
-  <strong>Depth:</strong>
-  <%= @fish.depth %>
-</p>
+    <p>
+      <strong>Temperature:</strong>
+      <%= @fish.temperature %>
+    </p>
 
-<p>
-  <strong>Temperature:</strong>
-  <%= @fish.temperature %>
-</p>
+    <p>
+      <strong>Other notes:</strong>
+      <%= @fish.other_notes %>
+    </p>
+</div>
+</div>
 
-<p>
-  <strong>Other notes:</strong>
-  <%= @fish.other_notes %>
-</p>
-
-<% if @user.id != nil && @user.id == @fish.user_id %>
-<%= link_to 'Edit', edit_fish_path(@fish) %> |
-<%end%>
-<%= link_to 'Back', fish_index_path %>
+<% if @user != nil && @user.id == @fish.user_id %>
+  <%= link_to edit_fish_path do %>
+        <span class="glyphicon glyphicon-edit">Edit</span>
+        <%end%>|
+          <%= link_to fish_index_path do %>
+        <span class="glyphicon glyphicon-th"><%=@user.username%>'s-Fish</span>
+        <%end%>|
+        <%end%>
+          <%= link_to fish_index_path do %>
+          <span class="glyphicon glyphicon-step-backward">Back</span>
+        <%end%>

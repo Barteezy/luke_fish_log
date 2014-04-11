@@ -1,0 +1,45 @@
+<h1>Listing profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Location</th>
+      <th>Birth year</th>
+      <th>Favorite target</th>
+      <th>Best catch</th>
+      <th>Short bio</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= profile.user.username if profile.user %></td>
+        <td><%= image_tag @profile.avatar.url %></td>
+        <td><%= profile.location %></td>
+        <td><%= profile.birth_year %></td>
+        <td><%= profile.favorite_target %></td>
+        <td><%= profile.best_catch %></td>
+        <td><%= profile.short_bio %></td>
+         <td><%= link_to 'Show', profile %></td>
+       <% if profile.user == @user %>
+        <td><%= link_to edit_profile_path(profile) do %></td>
+        <span class="glyphicon glyphicon-edit">Edit</span>
+        <%end%>
+        <td><%= link_to profile, method: :delete, data: { confirm: 'Are you sure?' } do %></td>
+        <span class="glyphicon glyphicon-remove">Delete</span>
+        <%end%>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if @user != nil %>
+<%= link_to 'New Profile', new_profile_path %>
+<%end%>

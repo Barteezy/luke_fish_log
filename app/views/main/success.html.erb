@@ -1,1 +1,12 @@
 <h1>You are now logged out</h1>
+<div class="jumbotron center" >
+<% if @user != nil %>
+  <b><%=@user.username%> you are already signed in. Go to your profile <a href="/profile/<%=@user.username%>">Here</a></b>
+<%end%>
+
+<h1> Welcome To The Colorado Fish Log </h1>
+
+ 
+<h2 align="center"> <%= link_to "Login","login", class: "btn btn-primary btn-lg"%>or
+ <%= link_to "Sign Up","sign_up", class: "btn btn-success btn-lg"%></h2>
+</div>

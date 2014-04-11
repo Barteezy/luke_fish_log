@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Hello <%= @profile.user.username %> </h1>
+<%= image_tag @profile.avatar.url(:thumb) %>
+<p>
+  <strong>Location:</strong>
+  <%= @profile.location %>
+</p>
+
+<p>
+  <strong>Birth year:</strong>
+  <%= @profile.birth_year %>
+</p>
+
+<p>
+  <strong>Favorite target:</strong>
+  <%= @profile.favorite_target %>
+</p>
+
+<p>
+  <strong>Best catch:</strong>
+  <%= @profile.best_catch %>
+</p>
+
+<p>
+  <strong>Short bio:</strong>
+  <%= @profile.short_bio %>
+</p>
+
+<% if @user != nil && @user.id == @profile.user_id %>
+  <%= link_to edit_profile_path(@profile) do %> 
+  <span class="glyphicon glyphicon-edit">Edit-Profile</span>|
+  <%end%>
+  <%= link_to new_fish_path do %> 
+  <span class="glyphicon glyphicon-plus">Add-Fish</span>|
+  <%end%>
+  <%= link_to fish_index_path(@profile) do %>
+  <span class="glyphicon glyphicon-th"><%=@user.username%>'s-Fish</span>|
+<%end%>
+<%end%>
