@@ -27,7 +27,7 @@
   <%= @profile.short_bio %>
 </p>
 
-<% if @user != nil && @user.id == @profile.user_id %>
+<% if current_user != nil && current_user.id == @profile.user_id %>
   <%= link_to edit_profile_path(@profile) do %> 
   <span class="glyphicon glyphicon-edit">Edit-Profile</span>|
   <%end%>
@@ -35,6 +35,6 @@
   <span class="glyphicon glyphicon-plus">Add-Fish</span>|
   <%end%>
   <%= link_to fish_index_path(@profile) do %>
-  <span class="glyphicon glyphicon-th"><%=@user.username%>'s-Fish</span>|
+  <span class="glyphicon glyphicon-th"><%=current_user.username%>'s-Fish</span>|
 <%end%>
 <%end%>

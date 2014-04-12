@@ -4,36 +4,21 @@ class FishController < ApplicationController
 
   
   def index
-    @user = current_user
     @fish = Fish.all
   end
 
   def recent
-    @user = current_user
     @fish = Fish.all
-  end
-
-  
-  def show
-    @user = current_user
   end
 
 
   def new
-    @user = current_user
     @fish = Fish.new
- 
-  end
-
- 
-  def edit
-    @user = current_user
   end
 
   def create
-    @user = current_user
     @fish = Fish.new(fish_params)
-    @fish.user_id = @user.id
+    @fish.user_id = current_user.id
 
 
       if @fish.save
@@ -45,29 +30,25 @@ class FishController < ApplicationController
   end
 
     def update
-     @user = current_user
-        if @fish.update(fish_params)
-            redirect_to @fish, notice: 'Fish was successfully updated.'
-        else
-            render action: 'edit'
-        end
+      if @fish.update(fish_params)
+          redirect_to @fish, notice: 'Fish was successfully updated.'
+      else
+          render action: 'edit'
+      end
     end
 
     def destroy
-      @user = current_user
       @fish.destroy
       redirect_to fish_index_url 
     end
 
   private
     def set_fish
-      @user = current_user
       @fish = Fish.find(params[:id])
     end
 
     def correct_user
-      @user = current_user
-      if @user.id != @fish.user.id 
+      if current_user.id != @fish.user.id 
         flash[:error] = "Not authorized to edit this fish"
         redirect_to "/fish"
       end

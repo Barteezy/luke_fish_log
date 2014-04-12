@@ -23,12 +23,12 @@
 
         <li><a href="/recent">Recent Pics</a></li>
         
-        <% if @user != nil %>
+        <% if current_user != nil %>
         <li><%= link_to 'Add Fish', new_fish_path %></a></li>
         
-        <li><a href="/profiles/<%=@user.id%>"><%= @user.username %></a></li>
+        <li><a href="/profiles/<%=current_user.id%>"><%= current_user.username %></a></li>
         
-        <li><a href="/logout">Logout <%= @user.username %></a></li>  
+        <li><a href="/logout">Logout <%= current_user.username %></a></li>  
       </ul>
     </div>
     <%end%>

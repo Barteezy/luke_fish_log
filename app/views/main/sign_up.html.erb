@@ -1,8 +1,8 @@
 <%= form_tag "/sign_up" do %>
 
 <head>
-<% if @user != nil %>
-<%= error_messages_for @user %>
+<% if current_user != nil %>
+<%= error_messages_for current_user %>
 <%end%>
 
 </head>

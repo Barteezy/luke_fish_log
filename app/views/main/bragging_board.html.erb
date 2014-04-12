@@ -2,7 +2,7 @@
 
 <table class="table">
 <tr>
-      <% @user.fish_pins.each do |f| %>
+      <% current_user.fish_pins.each do |f| %>
 <h2>   Species: <%= f.species%> </h2>
   <ul>
    <li>   Length: <%= f.length%> </li>

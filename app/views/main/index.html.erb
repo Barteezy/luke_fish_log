@@ -2,8 +2,8 @@
 	
 
 <div class="jumbotron center" >
-<% if @user != nil %>
-  <b><%=@user.username%> you are already signed in. Go to your profile <a href="/profile/<%=@user.username%>">Here</a></b>
+<% if current_user != nil %>
+  <b><%=current_user.username%> you are already signed in. Go to your profile <a href="/profile/<%=current_user.username%>">Here</a></b>
 <%end%>
 
 <h1> Welcome To The Colorado Fish Log </h1>

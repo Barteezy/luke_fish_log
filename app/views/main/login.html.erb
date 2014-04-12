@@ -1,7 +1,7 @@
 
 <%= form_tag "/login" do %>
-<% if @user != nil %>
-  <b><%=@user.username%> you are already signed in. Go to your profile <a href="/profiles/<%=@user.id%>">Here</a></b>
+<% if current_user != nil %>
+  <b><%=current_user.username%> you are already signed in. Go to your profile <a href="/profiles/<%=current_user.id%>">Here</a></b>
 <%end%>
 
 <h1>Please login</h1>
@@ -25,5 +25,5 @@
 </body>
 
 
-<p> test user: username: "FirstUser", email: "first@user.com" password: "password"
+<p> test user: username: "FirstUser", email: "firstcurrent_user.com" password: "password"
 <%end%>

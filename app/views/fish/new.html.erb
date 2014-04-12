@@ -3,5 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to fish_index_path do %>
-<span class="glyphicon glyphicon-th"><%=@user.username%>'s-Fish</span>
+<span class="glyphicon glyphicon-th"><%=current_user.username%>'s-Fish</span>
 <%end%>

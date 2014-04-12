@@ -26,7 +26,7 @@
         <td><%= profile.best_catch %></td>
         <td><%= profile.short_bio %></td>
          <td><%= link_to 'Show', profile %></td>
-       <% if profile.user == @user %>
+       <% if profile.user == current_user %>
         <td><%= link_to edit_profile_path(profile) do %></td>
         <span class="glyphicon glyphicon-edit">Edit</span>
         <%end%>
@@ -40,6 +40,6 @@
 </table>
 
 <br>
-<% if @user != nil %>
+<% if current_user != nil %>
 <%= link_to 'New Profile', new_profile_path %>
 <%end%>

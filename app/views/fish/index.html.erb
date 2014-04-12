@@ -1,10 +1,10 @@
-<% if @user != nil %>
-<h1><%=@user.username%>'s Fish</h1>
+<% if current_user != nil %>
+<h1><%=current_user.username%>'s Fish</h1>
 
 
   <div id="fish" class="transitions-enabled">
     
-    <% @user.fish.each do |fish| %>
+    <% current_user.fish.each do |fish| %>
       <div class="box panel panel-default">
       <%= link_to image_tag(fish.image.url(:medium)), fish %>
       <div class="panel-body">
@@ -15,7 +15,7 @@
         <%= link_to fish do %>
         <span class="glyphicon glyphicon-info-sign">Details</span>
         <%end%>|
-        <% if fish.user == @user %>
+        <% if fish.user == current_user %>
         <%= link_to edit_fish_path(fish) do %>
         <span class="glyphicon glyphicon-edit">Edit</span>
         <%end%>|
