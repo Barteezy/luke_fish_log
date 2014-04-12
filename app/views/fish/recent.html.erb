@@ -2,13 +2,12 @@
 <h1>Recent Fish</h1>
 
 <div id="fish" class="transitions-enabled">
-  <% User.all.each do |user| %>
-  
-  <% user.fish.each do |fish| %>
+  <%newest_fish = Fish.all.sort { |a,b| b<=>a}%>
+  <% newest_fish.each do |fish| %>
   <div class="box panel panel-default">
     <%= link_to image_tag(fish.image.url(:medium)), fish %>
     <div class="panel-body">
-      
+
 
       <%= fish.species %>
       <div class="actions">
@@ -28,7 +27,7 @@
   </div>
   <% end %>
 </div>
-<%end%>
+
 
 
 

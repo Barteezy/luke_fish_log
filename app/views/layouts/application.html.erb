@@ -14,8 +14,8 @@
 
 	<%= render 'layouts/header' %>
 	<div class="container">
-	<%= yield %>
-	</div>
+   <%= yield %>
+ </div>
 
 
 </body>
@@ -29,12 +29,12 @@
 
 
 <% if flash[:error] != nil %>
-      <div class="alert alert-danger">
-        <%= flash[:error] %>
-      </div>
-    <% end %>
-    <% if flash[:error2] != nil %>
-      <div class="alert alert-danger">
-        <%= flash[:error2] %>
-      </div>
-    <%end%>
+<div class="alert alert-danger">
+  <%= flash[:error] %>
+</div>
+<% end %>
+<% if flash[:error2] != nil %>
+<div class="alert alert-danger">
+  <%= flash[:error2] %>
+</div>
+<%end%>
