@@ -2,26 +2,26 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   
   def index
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
     @profiles = Profile.all
   end
 
   def show
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
   end
 
   def new
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
     @profile = Profile.new
   end
 
   def edit
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
   end
 
   
   def create
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
     @profile = Profile.new(profile_params)
      @profile.user_id = @user.id
 
@@ -35,7 +35,7 @@ class ProfilesController < ApplicationController
 
   
   def update
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
     if @profile.update(profile_params)
       redirect_to @profile, notice: 'Profile was successfully updated.'   
     else
@@ -45,7 +45,7 @@ class ProfilesController < ApplicationController
 
 
   def destroy
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
     @profile.destroy
   
     redirect_to profiles_url 
@@ -54,7 +54,7 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @user = User.find_by(id: session[:user_id])
+      @user = current_user
       @profile = Profile.find(params[:id])
     end
 

@@ -4,34 +4,34 @@ class FishController < ApplicationController
 
   
   def index
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
     @fish = Fish.all
   end
 
   def recent
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
     @fish = Fish.all
   end
 
   
   def show
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
   end
 
 
   def new
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
     @fish = Fish.new
  
   end
 
  
   def edit
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
   end
 
   def create
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
     @fish = Fish.new(fish_params)
     @fish.user_id = @user.id
 
@@ -45,7 +45,7 @@ class FishController < ApplicationController
   end
 
     def update
-     @user = User.find_by(id: session[:user_id])
+     @user = current_user
         if @fish.update(fish_params)
             redirect_to @fish, notice: 'Fish was successfully updated.'
         else
@@ -54,19 +54,19 @@ class FishController < ApplicationController
     end
 
     def destroy
-      @user = User.find_by(id: session[:user_id])
+      @user = current_user
       @fish.destroy
       redirect_to fish_index_url 
     end
 
   private
     def set_fish
-      @user = User.find_by(id: session[:user_id])
+      @user = current_user
       @fish = Fish.find(params[:id])
     end
 
     def correct_user
-      @user = User.find_by(id: session[:user_id])
+      @user = current_user
       if @user.id != @fish.user.id 
         flash[:error] = "Not authorized to edit this fish"
         redirect_to "/fish"

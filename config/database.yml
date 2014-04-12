@@ -5,3 +5,11 @@ development:
   username: postgres
   password: postgres
   encoding: unicode
+
+test:
+  adapter: postgresql
+  host: localhost
+  database: "my_project_ruby_test"
+  username: postgres
+  password: postgres
+  encoding: unicode
