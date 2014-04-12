@@ -1,6 +1,7 @@
 class FishController < ApplicationController
   before_action :set_fish, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_signed_in, only: :index
 
   def index
     @fish = Fish.all

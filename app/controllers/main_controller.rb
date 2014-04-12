@@ -1,29 +1,30 @@
 class MainController < ApplicationController
 
 def root
-	render :index and return
+	render :index
 end
 
 def login_get
-  render :login and return
+  render :login
 end
 
 def sign_up_get
-  render :sign_up and return
+  render :sign_up
 end
 
 def sign_up_post
-    username = params[:username]
-    current_user.username = params[:username]
-    current_user.email    = params[:email]
-    current_user.password = params[:password]
-    current_user.password_confirmation = params[:password_confirmation]
-    if current_user.save == true 
-    session[:user_id] = current_user.id
-      redirect_to new_profile_path and return
-    else
-      render :sign_up and return
-    end
+  @user = User.new
+  username = params[:username]
+  @user.username = params[:username]
+  @user.email    = params[:email]
+  @user.password = params[:password]
+  @user.password_confirmation = params[:password_confirmation]
+  if @user.save == true 
+    session[:user_id] = @user.id
+    redirect_to new_profile_path
+  else
+    render :sign_up
+  end
 end
 
 def fish_id_get
@@ -34,8 +35,8 @@ def about
 end
 
 def logout
-    session.clear
-  redirect_to "/logged_out" and return
+  session.clear
+  redirect_to "/logged_out"
 end
 
 def logged_out_get
@@ -43,19 +44,21 @@ def logged_out_get
 end
 
 def login_post
-    email = params[:email]
-    password = params[:password]
-  if current_user == nil
+  email = params[:email]
+  password = params[:password]
+  @user = User.find_by(email: email)
+
+  if @user == nil
     flash[:error] = "Email Not Found"
     @old_email = email
-    render :login and return
-  elsif current_user.authenticate(password) == false
+    render :login
+  elsif @user.authenticate(password) == false
     flash[:error2] = "Password does not match"
     @old_email = email
-    render :login and return
+    render :login
   else
-    session[:user_id] = current_user.id
-    redirect_to "/profiles/#{current_user.id}" and return
+    session[:user_id] = @user.id
+    redirect_to "/profiles/#{current_user.id}"
   end
 end
 
