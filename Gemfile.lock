@@ -83,6 +83,8 @@ GEM
       mime-types
     pg (0.17.1)
     polyglot (0.3.3)
+    pony (1.6.2)
+      mail (>= 2.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -161,6 +163,7 @@ DEPENDENCIES
   masonry-rails (~> 0.2.0)
   paperclip (~> 3.0)
   pg
+  pony
   pry-rails
   rails (= 4.0.0)
   rails-footnotes!

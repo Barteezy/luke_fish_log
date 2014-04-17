@@ -24,5 +24,11 @@ App::Application.routes.draw do
 
   post "/login" => "main#login_post"
 
+  get "/verify_email/:user_id/:token" => "main#verify_email",
+    as: "verify_email"
+
+  post "/resend_verification_email" => "users#resend_verification_email",
+    as: "resend_verification_email"
+
 
 end
