@@ -45,7 +45,7 @@ class FishController < ApplicationController
   end
 
   def correct_user
-    if @fish.user == current_user
+    if @fish.user != current_user
       flash[:error] = "Not authorized to edit this fish"
       redirect_to "/fish"
     end
