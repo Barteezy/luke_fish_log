@@ -4,7 +4,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1> Hello <%= @profile.user.username %> </h1>
+<h1><%= @profile.user.username %> </h1>
 <%= image_tag @profile.avatar.url(:thumb) %>
 <p>
   <strong>Location:</strong>
@@ -38,6 +38,7 @@
   <%= link_to new_fish_path do %> 
   <span class="glyphicon glyphicon-plus">Add-Fish</span>|
   <%end%>
+
   <%= link_to fish_index_path(@profile) do %>
   <span class="glyphicon glyphicon-th"><%=current_user.username%>'s-Fish</span>|
 <%end%>

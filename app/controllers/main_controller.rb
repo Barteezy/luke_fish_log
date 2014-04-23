@@ -77,6 +77,12 @@ def fish_id_get
   render :fish_id
 end
 
+def fish_profile
+  fish = params[:fish]
+  @fish_type = FishType.find_by(name: fish)
+  render :fish_profile
+end
+
 def about
 end
 
@@ -102,11 +108,9 @@ def login_post
     flash[:error2] = "Password does not match"
     @old_email = email
     render :login
-  elsif current_user.profile == nil
-    redirct_to new_profile_path
   else
     session[:user_id] = @user.id
-    redirect_to "/profiles/#{current_user.id}"
+    redirect_to current_user.profile
   end
 end
 

@@ -24,6 +24,8 @@ App::Application.routes.draw do
 
   post "/login" => "main#login_post"
 
+  get "/fish_profile/:fish" => "main#fish_profile"
+
   get "/verify_email/:user_id/:token" => "main#verify_email",
     as: "verify_email"
 
