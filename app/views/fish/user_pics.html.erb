@@ -1,0 +1,32 @@
+
+<% if @user != nil %>
+<h1><%=@user.username%>'s Fish</h1>
+
+
+  <div id="fish" class="transitions-enabled">
+    
+    <% @user.fish.each do |fish| %>
+      <div class="box panel panel-default">
+      <%= link_to image_tag(fish.image.url(:medium)), fish %>
+      <div class="panel-body">
+        
+
+        <%= fish.species %>
+      <div class="actions">
+        <%= link_to fish do %>
+        <span class="glyphicon glyphicon-info-sign">Details</span>
+        <%end%>|
+        <% if fish.user == current_user %>
+        <%= link_to edit_fish_path(fish) do %>
+        <span class="glyphicon glyphicon-edit">Edit</span>
+        <%end%>|
+        <%= link_to fish, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-remove">Delete</span>
+        <%end%>
+      <%end%>
+        </div>
+        </div>
+        </div>
+    <% end %>
+  </div>
+<%end%>

@@ -4,7 +4,11 @@ App::Application.routes.draw do
 
   resources :fish
 
+  post "profiles/:id" => "fish#follow_post"
+
   get "/recent" => "fish#recent"
+
+  get "/user/:name" => "fish#user_pics", as: "user_pics"
 
   root "main#index"
 
@@ -14,7 +18,7 @@ App::Application.routes.draw do
 
   post "/sign_up" => "main#sign_up_post"
 
-  get "/fish_id" => "main#fish_id_get"
+  get "/fish_id" => "main#fish_id_get", as: "fish_id"
 
   get "/about" => "main#about"
 

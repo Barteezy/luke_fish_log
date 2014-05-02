@@ -11,6 +11,27 @@ class FishController < ApplicationController
     @fish = Fish.all
   end
 
+  
+
+  def follow_post
+    profile = Profile.find_by(id: params[:id])
+    id = params[:id]
+    if params[:commit] == "Follow"
+      Following.create! from_user_id: current_user.id, to_user_id: profile.user.id
+      redirect_to profile_path
+    elsif params[:commit] == "Unfollow"
+      following = Following.find_by(from_user_id: current_user.id, to_user_id: profile.user.id)
+      following.destroy
+      redirect_to profile_path
+    end
+  end
+
+
+  def user_pics
+    name = params[:name]
+    @user = User.find_by(username: name)
+  end
+
   def new
     @fish = Fish.new
   end

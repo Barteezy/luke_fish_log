@@ -1,11 +1,12 @@
+
 <% if current_user.profile == nil %>
-<%= link_to 'New Profile', new_profile_path %>
+  <%= link_to 'New Profile', new_profile_path %>
 <%end%>
 
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
 <h1><%= @profile.user.username %> </h1>
-<%= image_tag @profile.avatar.url(:thumb) %>
+  <%= image_tag @profile.avatar.url(:medium) %>
 <p>
   <strong>Location:</strong>
   <%= @profile.location %>
@@ -31,15 +32,51 @@
   <%= @profile.short_bio %>
 </p>
 
-<% if current_user != nil && current_user.id == @profile.user_id %>
+<% if current_user.id == @profile.user_id %>
+
   <%= link_to edit_profile_path(@profile) do %> 
   <span class="glyphicon glyphicon-edit">Edit-Profile</span>|
   <%end%>
+  
   <%= link_to new_fish_path do %> 
   <span class="glyphicon glyphicon-plus">Add-Fish</span>|
   <%end%>
 
   <%= link_to fish_index_path(@profile) do %>
   <span class="glyphicon glyphicon-th"><%=current_user.username%>'s-Fish</span>|
+  <%end%>
+  <h3>Who I follow</h3>
+
+<ul>
+  <% current_user.followings_from_me.each do |following| %>
+    <li>
+      <a href="/profiles/<%=following.to_user.profile.id%>"><%=image_tag following.to_user.profile.avatar.url(:thumb) %></a>
+    </li>
+    <br>
+ <% end %>
+</ul>
+
 <%end%>
-<%end%>
+  <% if current_user.id != @profile.user_id %>
+  <%= link_to user_pics_path(@profile.user.username) do %>
+  <span class="glyphicon glyphicon-th"><%=@profile.user.username%>'s-Fish</span>
+  <%end%>
+
+  <br>
+  <% if Following.find_by(from_user_id: current_user.id, to_user_id: @profile.user_id) == nil %>
+  <%= form_tag "/profiles/#{@profile.id}" do%>
+  <%= submit_tag "Follow" %>
+  <%end%>
+  <%end%>
+  <% if Following.find_by(from_user_id: current_user.id, to_user_id: @profile.user_id) != nil %>
+  <%= form_tag "/profiles/#{@profile.id}" do%>
+  <%= submit_tag "Unfollow" %>
+  <%end%>
+  <%end%>
+
+  <%end%>
+
+
+
+
+

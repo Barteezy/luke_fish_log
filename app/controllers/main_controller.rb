@@ -84,6 +84,7 @@ def fish_profile
 end
 
 def about
+  render :about
 end
 
 def logout
