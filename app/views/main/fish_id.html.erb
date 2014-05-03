@@ -11,7 +11,7 @@
 <tr>
   <% FishType.order(:id).each do |fish| %>
     <td><b><%=fish.name%></b></td>
-    <td><a href="/fish_profile/<%=fish.name%>"><img src="/images/<%=fish.image%>.jpg", width="190px"></td>
+    <td><a href="/fish_profile/<%=fish.name%>"><%= image_tag fish.image, width: 300 %></td>
     <td><%=fish.description%></td>
 </tr>
 <%end%>
