@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140423205431) do
   enable_extension "plpgsql"
 
   create_table "fish", force: true do |t|
+    t.string   "date"
     t.string   "location"
     t.string   "species"
     t.string   "lenth"

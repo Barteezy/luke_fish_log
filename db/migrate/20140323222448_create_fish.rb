@@ -1,6 +1,7 @@
 class CreateFish < ActiveRecord::Migration
   def change
     create_table :fish do |t|
+      t.string :date
       t.string :location
       t.string :species
       t.string :lenth
