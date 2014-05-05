@@ -4,7 +4,7 @@
 
   <div id="fish" class="transitions-enabled">
     
-    <% current_user.fish.each do |fish| %>
+    <% current_user.fish.page(params[:page]).per_page(8).each do |fish| %>
       <div class="box panel panel-default">
       <%= link_to image_tag(fish.image.url(:medium)), fish %>
       <div class="panel-body">
@@ -28,4 +28,6 @@
         </div>
     <% end %>
   </div>
+
+  <%= will_paginate @fish %>
 

@@ -4,11 +4,11 @@ class FishController < ApplicationController
   before_action :ensure_signed_in, only: :index
 
   def index
-    @fish = Fish.all
+    @fish = Fish.order("created_at DESC").page(params[:page]).per_page(8)
   end
 
   def recent
-    @fish = Fish.all
+    @fish = Fish.order("created_at DESC").page(params[:page]).per_page(8)
   end
 
   

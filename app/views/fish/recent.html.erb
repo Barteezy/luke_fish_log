@@ -2,7 +2,7 @@
 <h1>Recent Fish</h1>
 
 <div id="fish" class="transitions-enabled">
-  <%newest_fish = Fish.all.sort { |a,b| b<=>a}%>
+  <%newest_fish = Fish.order(:id).page(params[:page]).per_page(8)%>
   <% newest_fish.each do |fish| %>
   <div class="box panel panel-default">
     <%= link_to image_tag(fish.image.url(:medium)), fish %>
@@ -22,7 +22,7 @@
         <span class="glyphicon glyphicon-remove">Delete</span>
         <%end%>|
         <%end%>
-         <% if fish.user != current_user %>
+         <% if fish.user != current_user && current_user != nil%>
         <%= link_to fish.user.profile do %>
         <span class="glyphicon glyphicon-user">Profile</span>
         <%end%>|
@@ -32,7 +32,7 @@
   </div>
   <% end %>
 </div>
-
+<%= will_paginate @fish %>
 
 
 
