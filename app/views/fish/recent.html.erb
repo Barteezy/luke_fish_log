@@ -2,7 +2,7 @@
 <h1>Recent Fish</h1>
 
 <div id="fish" class="transitions-enabled">
-  <%newest_fish = Fish.order(:id).page(params[:page]).per_page(8)%>
+  <%newest_fish = Fish.order("created_at DESC").page(params[:page]).per_page(8)%>
   <% newest_fish.each do |fish| %>
   <div class="box panel panel-default">
     <%= link_to image_tag(fish.image.url(:medium)), fish %>
