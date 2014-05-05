@@ -16,10 +16,12 @@
     <%= f.file_field :image %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :date %><br>
+  <div class="field">
+    <%= f.label :date, "Date Caught" %><br>
     <%= f.text_field :date, class: "datepicker", placeholder: "YYYY-MM-DD"%>
+    <%= f.hidden_field :date%>
   </div>
+  <br>
 
   <div class="form-group">
     <%= f.label :location %><br>
